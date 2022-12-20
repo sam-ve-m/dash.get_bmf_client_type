@@ -1,0 +1,55 @@
+include:
+- ./func/*
+kind: ArchiveUploadSpec
+name: func-kYgK
+
+---
+apiVersion: fission.io/v1
+kind: Package
+metadata:
+  creationTimestamp: null
+  name: fn-get-bmf-client-09f82622-69c7-4062-8f18-ba935dc9afcb
+  namespace: default
+spec:
+  deployment:
+    checksum: {}
+  environment:
+    name: env-get-bmf-client
+    namespace: default
+  source:
+    checksum: {}
+    type: url
+    url: archive://func-kYgK
+status:
+  buildstatus: pending
+  lastUpdateTimestamp: "2022-12-13T13:55:09Z"
+
+---
+apiVersion: fission.io/v1
+kind: Function
+metadata:
+  creationTimestamp: null
+  name: fn-get-bmf-client
+  namespace: default
+spec:
+  InvokeStrategy:
+    ExecutionStrategy:
+      ExecutorType: newdeploy
+      MaxScale: 3
+      MinScale: 1
+      SpecializationTimeout: 120
+      TargetCPUPercent: 0
+    StrategyType: execution
+  concurrency: 500
+  environment:
+    name: env-get-bmf-client
+    namespace: default
+  functionTimeout: 60
+  idletimeout: 120
+  package:
+    functionName: main.get_enums
+    packageref:
+      name: fn-get-bmf-client-09f82622-69c7-4062-8f18-ba935dc9afcb
+      namespace: default
+  requestsPerPod: 1
+  resources: {}
