@@ -4,4 +4,4 @@
 apiVersion: fission.io/v1
 kind: DeploymentConfig
 name: ligadash-get-bmf-client-type
-uid: a1f65295-7a7f-4f2d-a224-5efc9d41756e
+uid: 1f859098-49d8-46a3-8557-750d30702f1b

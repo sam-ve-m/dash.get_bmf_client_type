@@ -1,12 +1,12 @@
 from typing import List, Tuple
 
-from src.core.interfaces.repository.bmf_client_enum.interface import (
+from func.src.core.interfaces.repository.bmf_client_enum.interface import (
     IBmfClientEnumRepository,
 )
-from src.repository.enum_bmf_client_cache.repository import (
+from func.src.repository.enum_bmf_client_cache.repository import (
     EnumBmfClientCacheRepository,
 )
-from src.repository.base_repository.oracle.repository import OracleBaseRepository
+from func.src.repository.base_repository.oracle.repository import OracleBaseRepository
 
 
 class BmfClientEnumRepository(IBmfClientEnumRepository):

@@ -1,8 +1,8 @@
-from src.repository.bmf_client_enum.repository import BmfClientEnumRepository
-from src.repository.enum_bmf_client_cache.repository import (
+from func.src.repository.bmf_client_enum.repository import BmfClientEnumRepository
+from func.src.repository.enum_bmf_client_cache.repository import (
     EnumBmfClientCacheRepository,
 )
-from src.repository.base_repository.oracle.repository import OracleBaseRepository
+from func.src.repository.base_repository.oracle.repository import OracleBaseRepository
 from tests.test_doubles.doubles import (
     enum_repository_get_cached_enum_dummy,
     enum_repository_get_from_cache_dummy_none,
