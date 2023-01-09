@@ -1,8 +1,8 @@
 from unittest.mock import patch
 import pytest
 
-from src.service.bmf_client_enum.service import BmfClientEnumService
-from src.repository.bmf_client_enum.repository import BmfClientEnumRepository
+from func.src.service.bmf_client_enum.service import BmfClientEnumService
+from func.src.repository.bmf_client_enum.repository import BmfClientEnumRepository
 
 from tests.test_doubles.doubles import (
     enum_service_get_enums_response_ok,

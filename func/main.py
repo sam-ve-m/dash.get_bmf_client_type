@@ -3,12 +3,12 @@ from http import HTTPStatus
 from etria_logger import Gladsheim
 from flask import request, Response, Request
 
-from src.domain.response.model import ResponseModel
-from src.domain.response.status_code.enums import StatusCode
-from src.service.bmf_client_enum.service import BmfClientEnumService
+from func.src.domain.response.model import ResponseModel
+from func.src.domain.response.status_code.enums import StatusCode
+from func.src.service.bmf_client_enum.service import BmfClientEnumService
 
 
-def get_enums(request_: Request = request) -> Response:
+async def get_enums(request_: Request = request) -> Response:
     try:
         service_response = BmfClientEnumService.get_response()
         response = ResponseModel.build_http_response(

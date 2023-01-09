@@ -1,9 +1,9 @@
-from src.core.interfaces.service.bmf_client_enum.interface import (
+from func.src.core.interfaces.service.bmf_client_enum.interface import (
     IBmfClientEnumService,
 )
-from src.domain.response.model import ResponseModel
-from src.domain.response.status_code.enums import StatusCode
-from src.repository.bmf_client_enum.repository import BmfClientEnumRepository
+from func.src.domain.response.model import ResponseModel
+from func.src.domain.response.status_code.enums import StatusCode
+from func.src.repository.bmf_client_enum.repository import BmfClientEnumRepository
 
 
 class BmfClientEnumService(IBmfClientEnumService):

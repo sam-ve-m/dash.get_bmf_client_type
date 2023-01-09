@@ -1,35 +1,35 @@
 include:
-- ./func/*
+- fission.py
 kind: ArchiveUploadSpec
-name: func-kYgK
+name: fission-py-g5Rn
 
 ---
 apiVersion: fission.io/v1
 kind: Package
 metadata:
   creationTimestamp: null
-  name: fn-get-bmf-client-09f82622-69c7-4062-8f18-ba935dc9afcb
+  name: dash-enum-bmf-clnt-tp-fn-cb9258c5-89d5-4b88-994c-84b08f34e630
   namespace: default
 spec:
   deployment:
     checksum: {}
+    type: url
+    url: archive://fission-py-g5Rn
   environment:
-    name: env-get-bmf-client
+    name: dash-enum-bmf-clnt-tp-env
     namespace: default
   source:
     checksum: {}
-    type: url
-    url: archive://func-kYgK
 status:
-  buildstatus: pending
-  lastUpdateTimestamp: "2022-12-13T13:55:09Z"
+  buildstatus: none
+  lastUpdateTimestamp: "2023-01-09T16:16:07Z"
 
 ---
 apiVersion: fission.io/v1
 kind: Function
 metadata:
   creationTimestamp: null
-  name: fn-get-bmf-client
+  name: dash-enum-bmf-clnt-tp-fn
   namespace: default
 spec:
   InvokeStrategy:
@@ -39,17 +39,23 @@ spec:
       MinScale: 1
       SpecializationTimeout: 120
       TargetCPUPercent: 0
+      hpaMetrics:
+      - resource:
+          name: cpu
+          target:
+            averageUtilization: 80
+            type: Utilization
+        type: Resource
     StrategyType: execution
   concurrency: 500
   environment:
-    name: env-get-bmf-client
+    name: dash-enum-bmf-clnt-tp-env
     namespace: default
   functionTimeout: 60
   idletimeout: 120
   package:
-    functionName: main.get_enums
     packageref:
-      name: fn-get-bmf-client-09f82622-69c7-4062-8f18-ba935dc9afcb
+      name: dash-enum-bmf-clnt-tp-fn-cb9258c5-89d5-4b88-994c-84b08f34e630
       namespace: default
-  requestsPerPod: 1
+  requestsPerPod: 10000
   resources: {}
